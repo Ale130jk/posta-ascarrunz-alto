@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+
+  --color-brand-50: #eef8f5;
+  --color-brand-100: #d8efe9;
+  --color-brand-200: #b2dfd5;
+  --color-brand-300: #82c9bb;
+  --color-brand-400: #4fae9d;
+  --color-brand-500: #2f9182;
+  --color-brand-600: #217568;
+  --color-brand-700: #1d5e55;
+  --color-brand-800: #1b4c45;
+  --color-brand-900: #183f3a;
+  --color-brand-950: #0b2421;
+
+  --color-accent-50: #fdf6ec;
+  --color-accent-100: #f9e8cf;
+  --color-accent-200: #f1cf9f;
+  --color-accent-300: #e6b06c;
+  --color-accent-400: #db9246;
+  --color-accent-500: #c97730;
+  --color-accent-600: #ab5c26;
+  --color-accent-700: #884621;
+  --color-accent-800: #6f3a20;
+  --color-accent-900: #5c311e;
+
+  --color-ink: #14201e;
+  --color-sand: #f4f1e9;
+  --color-paper: #fbfaf6;
+  --color-line: #e5e1d7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-brand-200);
+    color: var(--color-brand-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(20, 32, 30, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 32, 30, 0.055) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, black 20%, transparent 92%);
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(20, 32, 30, 0.11) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 10%, transparent 95%);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.modal-enter {
+  animation: modal-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.toast-enter {
+  animation: toast-in 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* FullCalendar: paleta de la posta sobre el tema Forma. */
+.calendar-shell {
+  --fc-forma-primary: var(--color-brand-700);
+  --fc-forma-primary-over: var(--color-brand-800);
+  --fc-forma-primary-down: var(--color-brand-900);
+  --fc-forma-primary-foreground: #ffffff;
+  --fc-forma-event: var(--color-brand-600);
+  --fc-forma-event-contrast: #ffffff;
+  --fc-forma-background: transparent;
+  --fc-forma-faint: rgba(20, 32, 30, 0.035);
+  --fc-forma-muted: rgba(20, 32, 30, 0.06);
+  --fc-forma-strong: rgba(20, 32, 30, 0.12);
+  --fc-forma-stronger: rgba(20, 32, 30, 0.18);
+  --fc-forma-strongest: rgba(20, 32, 30, 0.24);
+  --fc-forma-foreground: var(--color-ink);
+  --fc-forma-faint-foreground: #8b9490;
+  --fc-forma-muted-foreground: #65716d;
+  --fc-forma-border: var(--color-line);
+  --fc-forma-muted-border: #efebe2;
+  --fc-forma-strong-border: #cfc9bc;
+  --fc-forma-highlight: #cfe9e3;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.calendar-shell h2[role='heading'] {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.calendar-shell h2[role='heading']::first-letter {
+  text-transform: uppercase;
+}
+
+.calendar-shell button {
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.calendar-shell table {
+  font-size: 0.75rem;
+}
+
+.calendar-shell a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.calendar-shell th {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.calendar-shell [role='table'] {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.calendar-shell .availability-event {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin: 1px 3px !important;
+  padding: 0 !important;
+  color: var(--color-brand-700) !important;
+}
+
+.calendar-shell .day-no-slots > div:first-child {
+  opacity: 0.45;
+}
+
+.calendar-shell .schedule-block {
+  background: #d8efe9 !important;
+  border: 1px dashed var(--color-brand-400) !important;
+  color: var(--color-brand-900) !important;
+  border-radius: 0.55rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+}
+
+.calendar-shell .schedule-block * {
+  color: var(--color-brand-900) !important;
+}
+
+.calendar-shell .appointment-event {
+  background: var(--color-brand-700) !important;
+  border: 0 !important;
+  border-radius: 0.55rem !important;
+  color: #ffffff !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+}
+
+.calendar-shell .appointment-event * {
+  color: #ffffff !important;
+}
+
+.calendar-shell .appointment-event--done {
+  background: #0284c7 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .modal-enter,
+  .toast-enter {
+    animation: none;
+  }
+}
